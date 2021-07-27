@@ -1,5 +1,5 @@
 # kataGildedRose
 
-[Enunciado Kata](https://github.com/emilybache/GildedRose-Refactoring-Kata)
+[Requirements](https://github.com/emilybache/GildedRose-Refactoring-Kata/blob/main/GildedRoseRequirements.txt)
 
-[Base proyecto Kata](https://github.com/emilybache/GildedRose-Refactoring-Kata/tree/main/Java)
+[Base project](https://github.com/emilybache/GildedRose-Refactoring-Kata/tree/main/Java)
