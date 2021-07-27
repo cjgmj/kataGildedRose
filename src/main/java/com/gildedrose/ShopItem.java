@@ -16,12 +16,32 @@ public abstract class ShopItem extends Item {
 
 	public abstract void update();
 
+	protected int getSellIn() {
+		return this.sellIn;
+	}
+
 	protected void decreaseSellIn() {
 		this.sellIn -= 1;
 	}
 
 	protected boolean isAfterSellDate() {
 		return sellIn < 0;
+	}
+
+	protected boolean isQualityUpdatable() {
+		return this.quality > MIN_QUALITY && this.quality < MAX_QUALITY;
+	}
+
+	protected void checkQualityLessThanMin() {
+		if (this.quality < MIN_QUALITY) {
+			this.quality = MIN_QUALITY;
+		}
+	}
+
+	protected void checkQualityGreaterThanMax() {
+		if (this.quality > MAX_QUALITY) {
+			this.quality = MAX_QUALITY;
+		}
 	}
 
 }

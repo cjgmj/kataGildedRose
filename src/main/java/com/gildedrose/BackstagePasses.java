@@ -16,12 +16,12 @@ public final class BackstagePasses extends ShopItem {
 	public void update() {
 		this.decreaseSellIn();
 
-		if (this.quality < MAX_QUALITY) {
+		if (this.isQualityUpdatable()) {
 			if (this.isAfterSellDate()) {
 				this.quality = MIN_QUALITY;
 			} else {
-				int updatedQuality = this.quality + this.getQualityUpgradeBySellIn();
-				this.quality = updatedQuality > MAX_QUALITY ? MAX_QUALITY : updatedQuality;
+				this.quality += this.getQualityUpgradeBySellIn();
+				this.checkQualityGreaterThanMax();
 			}
 		}
 	}

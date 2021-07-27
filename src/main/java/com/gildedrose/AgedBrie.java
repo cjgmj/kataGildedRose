@@ -10,10 +10,9 @@ public final class AgedBrie extends ShopItem {
 	public void update() {
 		this.decreaseSellIn();
 
-		if (this.quality < MAX_QUALITY) {
-			int updatedQuality = this.quality
-					+ (this.isAfterSellDate() ? DEFAULT_QUALITY_CHANGE_AFTER_SELL_DATE : DEFAULT_QUALITY_CHANGE);
-			this.quality = updatedQuality > MAX_QUALITY ? MAX_QUALITY : updatedQuality;
+		if (this.isQualityUpdatable()) {
+			this.quality += (this.isAfterSellDate() ? DEFAULT_QUALITY_CHANGE_AFTER_SELL_DATE : DEFAULT_QUALITY_CHANGE);
+			this.checkQualityGreaterThanMax();
 		}
 	}
 

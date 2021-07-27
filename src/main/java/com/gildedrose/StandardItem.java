@@ -10,10 +10,9 @@ public final class StandardItem extends ShopItem {
 	public void update() {
 		this.decreaseSellIn();
 
-		if (this.quality > MIN_QUALITY) {
-			int updatedQuality = this.quality
-					- (this.isAfterSellDate() ? DEFAULT_QUALITY_CHANGE_AFTER_SELL_DATE : DEFAULT_QUALITY_CHANGE);
-			this.quality = updatedQuality < MIN_QUALITY ? MIN_QUALITY : updatedQuality;
+		if (this.isQualityUpdatable()) {
+			this.quality -= (this.isAfterSellDate() ? DEFAULT_QUALITY_CHANGE_AFTER_SELL_DATE : DEFAULT_QUALITY_CHANGE);
+			this.checkQualityLessThanMin();
 		}
 	}
 
