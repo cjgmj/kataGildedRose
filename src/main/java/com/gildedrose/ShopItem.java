@@ -10,15 +10,15 @@ public abstract class ShopItem extends Item {
 
 	protected final static int DEFAULT_QUALITY_CHANGE_AFTER_SELL_DATE = 2;
 
-	private Item item;
-
-	public ShopItem(Item item) {
-		super(item.name, item.sellIn, item.quality);
-
-		this.item = item;
+	public ShopItem(String name, int sellIn, int quality) {
+		super(name, sellIn, quality);
 	}
 
 	public abstract void update();
+
+	protected void decreaseSellIn() {
+		this.sellIn -= 1;
+	}
 
 	protected boolean isAfterSellDate() {
 		return sellIn < 0;

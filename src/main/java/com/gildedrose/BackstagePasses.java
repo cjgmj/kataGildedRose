@@ -14,6 +14,8 @@ public final class BackstagePasses extends ShopItem {
 
 	@Override
 	public void update() {
+		this.decreaseSellIn();
+
 		if (this.quality < MAX_QUALITY) {
 			if (this.isAfterSellDate()) {
 				this.quality = MIN_QUALITY;
@@ -25,9 +27,9 @@ public final class BackstagePasses extends ShopItem {
 	}
 
 	private int getQualityUpgradeBySellIn() {
-		if (sellIn <= FIVE_DAYS_THRESHOLD) {
+		if (sellIn < FIVE_DAYS_THRESHOLD) {
 			return QUALITY_UPGRADE_FIVE_DAYS_THRESHOLD;
-		} else if (sellIn <= TEN_DAYS_THRESHOLD) {
+		} else if (sellIn < TEN_DAYS_THRESHOLD) {
 			return QUALITY_UPGRADE_TEN_DAYS_THRESHOLD;
 		} else {
 			return DEFAULT_QUALITY_CHANGE;
