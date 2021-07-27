@@ -13,8 +13,7 @@ public final class Conjured extends ShopItem {
 		this.decreaseSellIn();
 
 		if (this.isQualityUpdatable()) {
-			this.quality -= (this.isAfterSellDate() ? DEFAULT_QUALITY_CHANGE_AFTER_SELL_DATE : DEFAULT_QUALITY_CHANGE)
-					* CONJURED_QUALITY_DEGRADE;
+			this.quality -= this.getDefaultQualityChangeBySellDate() * CONJURED_QUALITY_DEGRADE;
 			this.checkQualityLessThanMin();
 		}
 	}

@@ -28,6 +28,10 @@ public abstract class ShopItem extends Item {
 		return this.quality > MIN_QUALITY && this.quality < MAX_QUALITY;
 	}
 
+	protected int getDefaultQualityChangeBySellDate() {
+		return this.isAfterSellDate() ? DEFAULT_QUALITY_CHANGE_AFTER_SELL_DATE : DEFAULT_QUALITY_CHANGE;
+	}
+
 	protected void checkQualityLessThanMin() {
 		if (this.quality < MIN_QUALITY) {
 			this.quality = MIN_QUALITY;
