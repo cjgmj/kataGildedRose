@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Test;
 
 class GildedRoseTest {
 
+	private static final int SULFURAS_QUALITY = 80;
+
 	private ShopItem[] arrayWith(ShopItem item) {
 		return new ShopItem[] { item };
 	}
@@ -72,11 +74,12 @@ class GildedRoseTest {
 
 	@Test
 	public void testSulfurasNeverChanges() {
-		ShopItem sulfuras = new Sulfuras("Sulfuras, Hand of Ragnaros", 0, 25);
+		ShopItem sulfuras = new Sulfuras("Sulfuras, Hand of Ragnaros", 0);
 
 		GildedRose gildedRose = new GildedRose();
 		gildedRose.updateQuality(arrayWith(sulfuras));
 
+		assertEquals(sulfuras.quality, SULFURAS_QUALITY);
 		assertEquals(sulfuras.sellIn, 0);
 	}
 
