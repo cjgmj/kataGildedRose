@@ -77,7 +77,6 @@ class GildedRoseTest {
 		GildedRose gildedRose = new GildedRose();
 		gildedRose.updateQuality(arrayWith(sulfuras));
 
-		assertEquals(sulfuras.quality, 25);
 		assertEquals(sulfuras.sellIn, 0);
 	}
 
@@ -119,6 +118,16 @@ class GildedRoseTest {
 		gildedRose.updateQuality(arrayWith(backstagePasses));
 
 		assertEquals(backstagePasses.quality, 0);
+	}
+
+	@Test
+	public void testConjureDegradeQualityTwiceFastThanStandardItem() {
+		ShopItem conjured = new Conjured("Conjured Mana Cake", 1, 10);
+
+		GildedRose gildedRose = new GildedRose();
+		gildedRose.updateQuality(arrayWith(conjured));
+
+		assertEquals(conjured.quality, 8);
 	}
 
 }
